@@ -1,0 +1,82 @@
+:root {
+  --bg-dark: #0f0f0f;
+  --accent: #ffffff;
+  
+}
+
+#root {
+  opacity: 0;
+  visibility: hidden; 
+  transition: opacity 0.5s ease; /* Optional: smooth fallback */
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-dark);
+  color: white;
+  font-family: "Inter", sans-serif;
+  overflow: hidden; 
+}
+
+/* Loader Styles */
+.loader-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  pointer-events: none;
+}
+
+.bar-container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  z-index: 1;
+  overflow: hidden; /* Critical: clips the bars as they move up */
+  height:2000px
+
+}
+
+.bar {
+  flex: 1;
+  background: var(--bg-dark);
+  height: 100%;
+  /* No borders here to ensure a gapless curtain */
+  will-change: transform; 
+}
+
+.counter {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  font-size: 10vw;
+  font-weight: 800;
+  line-height: 0.8;
+  color: var(--accent);
+  z-index: 1000;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Main Content Reveal Styles */
+.main-content {
+  position: relative;
+  opacity: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 0; /* Behind the loader */
+}
+
+/* For the text reveal effect */
+.hero-title-wrapper {
+  overflow: hidden; 
+  padding-bottom: 10px;
+}
+
+.hero-title {
+  font-size: clamp(3rem, 8vw, 10rem);
+  margin: 0;
+  line-height: 1.1;
+}

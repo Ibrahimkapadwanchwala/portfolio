@@ -1,0 +1,138 @@
+/* IMPORT PREMIUM FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@1,400;1,500&display=swap');
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: #000;
+  color: #fff;
+  margin-top: 60px
+}
+
+.hero-container {
+  max-width: 1250px;
+  margin: auto;
+  padding: 100px 20px;
+  display: flex;
+  gap: 100px;
+  
+  align-items: center;
+}
+
+/* LEFT SIDE */
+.hero-left {
+  flex: 1;
+ 
+}
+
+/* "hello world" */
+.hero-tag {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: 42px;
+  color: #dcdcdc;
+  margin-bottom: 30px;
+}
+
+/* MAIN HEADING */
+.hero-left h1 {
+  font-family: "Inter", sans-serif;
+  font-size: 64px;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  max-width: 700px;
+}
+
+/* Highlight word */
+.hero-left span {
+  .hero-left span {
+  font-style: italic;
+  background: linear-gradient(135deg, #00f2fe, #00ff87);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+}
+/* BUTTON CONTAINER (optional but helps alignment) */
+.hero-buttons {
+  margin-top: 50px;
+  display: flex;
+  gap: 20px;
+}
+
+/* COMMON BUTTON BASE */
+/* COMMON BASE */
+.hero-buttons button {
+  min-width: 180px;
+  height: 54px;
+  font-size: 17px; /* increased */
+  font-weight: 500;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white; /* SAME TEXT COLOR */
+}
+
+/* PRIMARY BUTTON */
+.btn-primary {
+  background: linear-gradient(135deg, #00f2fe, #00ff87);
+  border: none;
+  color: black; /* better contrast on gradient */
+}
+
+/* PRIMARY HOVER */
+.btn-primary:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 
+    0 10px 25px rgba(0, 255, 135, 0.4),
+    0 0 20px rgba(0, 242, 254, 0.3);
+}
+
+/* RESUME BUTTON */
+.btn-secondary {
+  background: transparent;
+  border: 2px solid rgba(0, 255, 135, 0.6);
+ 
+}
+
+/* 🔥 RESUME HOVER (MAIN CHANGE) */
+.btn-secondary:hover {
+  background: linear-gradient(135deg, #00f2fe, #00ff87);
+  color: black; /* matches primary */
+  border-color: transparent;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 
+    0 10px 25px rgba(0, 255, 135, 0.4),
+    0 0 20px rgba(0, 242, 254, 0.3);
+}
+/* RIGHT SIDE */
+.hero-right {
+  flex: 1;
+  max-width: 420px;
+  color: #b5b5b5;
+  font-family: "Inter", sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+/* SPACING BETWEEN PARAGRAPHS */
+.hero-right p {
+  margin-bottom: 18px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .hero-container {
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  .hero-left h1 {
+    font-size: 42px;
+  }
+
+  .hero-tag {
+    font-size: 30px;
+  }
+}

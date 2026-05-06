@@ -1,0 +1,77 @@
+.quote-section {
+  padding: 100px 0;
+  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  justify-content: center;
+}
+
+.quote-container {
+  max-width: 1200px;
+  width: 90%;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* Left Side Styling */
+.quote-hook h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.quote-hook h2 span {
+  font-style: italic;
+  font-weight: 400;
+  color: #00f2fe; /* Your theme cyan */
+}
+
+.quote-attribution {
+  display: flex;
+  flex-direction: column;
+}
+
+.quote-author {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.quote-title {
+  font-size: 0.9rem;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 4px;
+}
+
+/* Right Side Styling */
+.quote-manifesto p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #aaa;
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+
+.quote-manifesto p:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive for Mobile */
+@media (max-width: 900px) {
+  .quote-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  
+  .quote-hook h2 {
+    font-size: 1.8rem;
+  }
+}

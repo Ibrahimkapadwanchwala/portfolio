@@ -1,0 +1,132 @@
+/* --- SECTION & CONTAINER --- */
+.skills-section {
+  padding: 80px 0; /* Tightened vertical spacing */
+}
+
+.skills-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px; /* Standardized side padding */
+}
+
+/* --- TITLE --- */
+.skills-title {
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  font-style: italic;
+  color: #ffffff;
+}
+
+/* --- GRID --- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px; /* Balanced gap between cards */
+}
+
+/* --- CARD STYLE --- */
+.skill-card {
+  position: relative;
+  background: #0a0a0a;
+  border-radius: 16px;
+  padding: 24px; /* Optimized internal padding */
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.skill-card h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* --- GLOW BORDER EFFECT --- */
+.skill-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 1px; /* The width of the glowing border */
+  background: linear-gradient(135deg, #00f2fe, #00ff87);
+  -webkit-mask: 
+    linear-gradient(#000 0 0) content-box, 
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.9),
+    0 0 40px rgba(0, 255, 135, 0.05);
+}
+
+.skill-card:hover::before {
+  opacity: 1;
+}
+
+/* --- ITEMS & PILLS --- */
+.skill-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Spacing between skill pills */
+}
+
+.skill-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  padding: 6px 14px; /* Balanced pill dimensions */
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #a0a0a0; /* Default neutral text color */
+  transition: all 0.25s ease;
+  cursor: default;
+  position: relative;
+  white-space: nowrap;
+}
+
+/* --- LOGO STYLE --- */
+.skill-logo {
+  width: 14px; /* Matches the text height for alignment */
+  height: 14px;
+  object-fit: contain;
+  filter: grayscale(100%) brightness(1.5);
+  transition: all 0.25s ease;
+}
+
+/* --- PILL HOVER STATE --- */
+.skill-pill:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--brand-color);
+  color: var(--brand-color); /* Text changes to brand color */
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+}
+
+.skill-pill:hover .skill-logo {
+  filter: grayscale(0%) brightness(1) drop-shadow(0 0 2px var(--brand-color));
+  /* Logo restores original color and gains a subtle brand glow */
+}
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  .skills-container {
+    padding: 0 20px;
+  }
+  .skills-title {
+    font-size: 1.8rem;
+  }
+}

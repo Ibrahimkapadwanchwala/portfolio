@@ -1,0 +1,63 @@
+:root {
+  --bg-color: #050505;
+  --text-primary: #f5f5f7;
+  --text-dimmed: #666;
+  --accent-blue: #3b82f6;
+  --terminal-bg: #0c0c0c;
+  --border-color: rgba(255, 255, 255, 0.08);
+    --mouse-x: 50%;
+  --mouse-y: 50%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden; /* Prevents unwanted horizontal scrolling */
+}
+
+/* App Wrapper */
+.main-container {
+  background-color: var(--bg-color);
+  min-height: 100vh;
+  color: var(--text-primary);
+}
+
+/* Global focus states for accessibility */
+input:focus, button:focus {
+  outline: 2px solid var(--accent-blue);
+  outline-offset: 2px;
+}
+
+/* Smooth scrolling for anchor links (#home, #projects) */
+html {
+  scroll-behavior: smooth;
+}
+
+
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  /* The magic line: adjusts how "heavy" or "smooth" the follow effect is */
+  transition: --mouse-x 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+              --mouse-y 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  
+  background: radial-gradient(
+    700px circle at var(--mouse-x) var(--mouse-y),
+    rgba(0, 242, 254, 0.12),
+    rgba(0, 255, 135, 0.04) 35%,
+    transparent 75%
+  );
+}
