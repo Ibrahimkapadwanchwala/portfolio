@@ -18,8 +18,9 @@ export default function Hero() {
           </h1>
 
           <div className="hero-buttons">
-            <button className="btn-primary">View Projects</button>
-            <button className="btn-secondary">Resume</button>
+           <a href="#projects"> <button className="btn-primary">View Projects</button></a>
+            <a href="/resume.pdf"target="_blank" 
+    rel="noopener noreferrer"><button className="btn-secondary">Resume</button></a>
           </div>
         </div>
 

@@ -87,7 +87,7 @@ export default function Footer() {
           <h2 className="footer-title">Let's Build Something Together</h2>
           <p className="footer-text">
             I'm currently looking for new opportunities. Whether you have a
-            question about **CardioGuard** or **SecureSend**, my inbox is always
+            question about my projects, my inbox is always
             open.
           </p>
 

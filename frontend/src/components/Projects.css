@@ -3,6 +3,7 @@
   margin: 0 auto;
   padding: 100px 48px;
   background: #000;
+  
 }
 
 .section-title {
@@ -11,6 +12,7 @@
   margin-bottom: 60px;
   color: white;
   letter-spacing: -0.02em;
+  
 }
 
 .project-grid {
