@@ -3,136 +3,356 @@
 
 .hero {
   min-height: 100vh;
+
   display: flex;
   align-items: center;
+
   background: #000;
   color: #fff;
-  margin-top: 60px
+
+  margin-top: 60px;
 }
 
 .hero-container {
+  width: 100%;
   max-width: 1250px;
+
   margin: auto;
+
   padding: 100px 20px;
+
   display: flex;
-  gap: 100px;
-  
   align-items: center;
+  justify-content: space-between;
+
+  gap: 100px;
+
+  box-sizing: border-box;
 }
 
-/* LEFT SIDE */
+/* =========================
+   LEFT SIDE
+========================= */
+
 .hero-left {
   flex: 1;
- 
+  min-width: 0;
+  
+
 }
 
-/* "hello world" */
+/* hello world */
+
 .hero-tag {
+  display: inline-block;
+
   font-family: "Playfair Display", serif;
   font-style: italic;
+
   font-size: 42px;
+
   color: #dcdcdc;
+
   margin-bottom: 30px;
 }
 
-/* MAIN HEADING */
+/* =========================
+   MAIN HEADING
+========================= */
+
 .hero-left h1 {
   font-family: "Inter", sans-serif;
+
   font-size: 64px;
   font-weight: 500;
-  line-height: 1.1;
+
+  line-height: 1.18;
   letter-spacing: -1px;
+
   max-width: 700px;
+
+  margin: 0;
+
+  overflow: visible;
 }
 
 /* Highlight word */
-.hero-left span {
-  .hero-left span {
-  font-style: italic;
+
+.hero-left h1 span {
+  
+ font-style: italic;
   background: linear-gradient(135deg, #00f2fe, #00ff87);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
+
+  /* Use inline-block but with specific vertical alignment */
+  display: inline-block;
+  vertical-align: top; 
+
+  /* This expands the 'painting' area for the background-clip */
+  padding-bottom: 10px;
+  margin-bottom: -10px;
+
+  /* Ensures the italic slant doesn't get cut off on the right */
+  padding-right: 4px;
+  
+  /* Reset line-height to match the parent exactly */
+  line-height: inherit;
 }
-}
-/* BUTTON CONTAINER (optional but helps alignment) */
+
+/* =========================
+   BUTTONS
+========================= */
+
 .hero-buttons {
   margin-top: 50px;
+
   display: flex;
+  flex-wrap: wrap;
+
   gap: 20px;
 }
 
+.hero-buttons a {
+  text-decoration: none;
+}
+
 /* COMMON BUTTON BASE */
-/* COMMON BASE */
+
 .hero-buttons button {
   min-width: 180px;
   height: 54px;
-  font-size: 17px; /* increased */
+
+  padding: 0 24px;
+
+  font-size: 17px;
   font-weight: 500;
+
   border-radius: 12px;
+
   cursor: pointer;
+
   transition: all 0.3s ease;
-  color: white; /* SAME TEXT COLOR */
+
+  color: white;
+
+  font-family: "Inter", sans-serif;
 }
 
 /* PRIMARY BUTTON */
+
 .btn-primary {
   background: linear-gradient(135deg, #00f2fe, #00ff87);
+
   border: none;
-  color: black; /* better contrast on gradient */
+
+  color: black;
 }
 
 /* PRIMARY HOVER */
+
 .btn-primary:hover {
   transform: translateY(-3px) scale(1.02);
-  box-shadow: 
+
+  box-shadow:
     0 10px 25px rgba(0, 255, 135, 0.4),
     0 0 20px rgba(0, 242, 254, 0.3);
 }
 
-/* RESUME BUTTON */
+/* SECONDARY BUTTON */
+
 .btn-secondary {
   background: transparent;
+
   border: 2px solid rgba(0, 255, 135, 0.6);
- 
 }
 
-/* 🔥 RESUME HOVER (MAIN CHANGE) */
+/* SECONDARY HOVER */
+
 .btn-secondary:hover {
   background: linear-gradient(135deg, #00f2fe, #00ff87);
-  color: black; /* matches primary */
+
+  color: black;
+
   border-color: transparent;
+
   transform: translateY(-3px) scale(1.02);
-  box-shadow: 
+
+  box-shadow:
     0 10px 25px rgba(0, 255, 135, 0.4),
     0 0 20px rgba(0, 242, 254, 0.3);
 }
-/* RIGHT SIDE */
+
+/* =========================
+   RIGHT SIDE
+========================= */
+
 .hero-right {
   flex: 1;
+
   max-width: 420px;
+
   color: #b5b5b5;
+
   font-family: "Inter", sans-serif;
+
   font-size: 17px;
-  line-height: 1.7;
+  line-height: 1.8;
+
+  min-width: 0;
 }
 
-/* SPACING BETWEEN PARAGRAPHS */
 .hero-right p {
   margin-bottom: 18px;
 }
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
+/* =========================
+   LAPTOP
+========================= */
+
+@media (max-width: 1100px) {
+
   .hero-container {
-    flex-direction: column;
-    gap: 60px;
+    gap: 70px;
   }
 
   .hero-left h1 {
-    font-size: 42px;
+    font-size: 54px;
+  }
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+  .hero {
+    min-height: auto;
+  }
+
+  .hero-container {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 60px;
+
+    padding: 120px 24px 80px;
+  }
+
+  .hero-left,
+  .hero-right {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-left h1 {
+    font-size: 46px;
+
+    max-width: 100%;
   }
 
   .hero-tag {
+    font-size: 34px;
+  }
+
+  .hero-right {
+    font-size: 16px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+  .hero-container {
+    padding: 110px 18px 70px;
+
+    gap: 50px;
+  }
+
+  .hero-left h1 {
+    font-size: 38px;
+
+    line-height: 1.15;
+  }
+
+  .hero-tag {
+    font-size: 28px;
+
+    margin-bottom: 24px;
+  }
+
+  .hero-buttons {
+    margin-top: 40px;
+
+    width: 100%;
+  }
+
+  .hero-buttons button {
+    min-width: 160px;
+
+    height: 50px;
+
+    font-size: 15px;
+  }
+
+  .hero-right {
+    font-size: 15px;
+
+    line-height: 1.7;
+  }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+
+  .hero-container {
+    padding: 100px 16px 60px;
+  }
+
+  .hero-left h1 {
     font-size: 30px;
+
+    line-height: 1.2;
+
+    letter-spacing: -0.5px;
+  }
+
+  .hero-tag {
+    font-size: 24px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+
+    width: 100%;
+  }
+
+  .hero-buttons a {
+    width: 100%;
+  }
+
+  .hero-buttons button {
+    width: 100%;
+
+    min-width: unset;
+
+    height: 48px;
+
+    font-size: 14px;
+  }
+
+  .hero-right {
+    font-size: 14px;
+
+    line-height: 1.7;
   }
 }

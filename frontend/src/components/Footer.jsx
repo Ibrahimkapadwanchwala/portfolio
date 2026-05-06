@@ -90,7 +90,7 @@ export default function Footer() {
             question about my projects, my inbox is always
             open.
           </p>
-
+  
           <div className="footer-socials">
             <a
               href="https://www.linkedin.com/in/ibrahim-kapadwanchwala/"

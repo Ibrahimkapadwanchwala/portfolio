@@ -1,35 +1,83 @@
 .quote-section {
+  width: 100%;
+
   padding: 100px 0;
-  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+
+  background: linear-gradient(
+    135deg,
+    #0f0f0f 0%,
+    #1a1a1a 100%
+  );
+
   border-top: 1px solid rgba(255, 255, 255, 0.05);
+
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
   display: flex;
   justify-content: center;
+
+  overflow: hidden;
+
+  box-sizing: border-box;
 }
 
 .quote-container {
+  width: 100%;
   max-width: 1200px;
-  width: 90%;
+
+  padding: 0 40px;
+
   display: grid;
+
   grid-template-columns: 1fr 1.5fr;
+
   gap: 60px;
+
   align-items: center;
+
+  box-sizing: border-box;
 }
 
-/* Left Side Styling */
+/* =========================
+   LEFT SIDE
+========================= */
+
+.quote-hook {
+  min-width: 0;
+}
+
 .quote-hook h2 {
-  font-size: 2.2rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+
   font-weight: 700;
-  line-height: 1.2;
+
+  line-height: 1.15;
+
+  letter-spacing: -0.02em;
+
   color: #fff;
-  margin-bottom: 20px;
+
+  margin-bottom: 24px;
 }
 
 .quote-hook h2 span {
   font-style: italic;
+
   font-weight: 400;
-  color: #00f2fe; /* Your theme cyan */
+
+  background: linear-gradient(
+    135deg,
+    #00f2fe,
+    #00ff87
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
+
+/* =========================
+   AUTHOR
+========================= */
 
 .quote-attribution {
   display: flex;
@@ -38,24 +86,41 @@
 
 .quote-author {
   font-size: 1.1rem;
+
   font-weight: 600;
+
   color: #fff;
 }
 
 .quote-title {
   font-size: 0.9rem;
+
   color: #666;
+
   text-transform: uppercase;
+
   letter-spacing: 1px;
+
   margin-top: 4px;
 }
 
-/* Right Side Styling */
+/* =========================
+   RIGHT SIDE
+========================= */
+
+.quote-manifesto {
+  min-width: 0;
+}
+
 .quote-manifesto p {
   font-size: 1.15rem;
-  line-height: 1.8;
+
+  line-height: 1.9;
+
   color: #aaa;
-  margin-bottom: 20px;
+
+  margin-bottom: 22px;
+
   font-weight: 300;
 }
 
@@ -63,15 +128,128 @@
   margin-bottom: 0;
 }
 
-/* Responsive for Mobile */
+/* =========================
+   LAPTOP
+========================= */
+
+@media (max-width: 1100px) {
+
+  .quote-container {
+    gap: 50px;
+  }
+
+  .quote-manifesto p {
+    font-size: 1.05rem;
+  }
+}
+
+/* =========================
+   TABLET
+========================= */
+
 @media (max-width: 900px) {
+
+  .quote-section {
+    padding: 80px 0;
+  }
+
   .quote-container {
     grid-template-columns: 1fr;
+
     gap: 40px;
+
     text-align: center;
+
+    padding: 0 24px;
   }
-  
+
   .quote-hook h2 {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
+  }
+
+  .quote-attribution {
+    align-items: center;
+  }
+
+  .quote-manifesto p {
+    font-size: 1rem;
+
+    line-height: 1.8;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+  .quote-section {
+    padding: 70px 0;
+  }
+
+  .quote-container {
+    gap: 34px;
+
+    padding: 0 18px;
+  }
+
+  .quote-hook h2 {
+    font-size: 1.9rem;
+
+    line-height: 1.2;
+  }
+
+  .quote-author {
+    font-size: 1rem;
+  }
+
+  .quote-title {
+    font-size: 0.8rem;
+  }
+
+  .quote-manifesto p {
+    font-size: 0.95rem;
+
+    line-height: 1.75;
+
+    margin-bottom: 18px;
+  }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+
+  .quote-section {
+    padding: 60px 0;
+  }
+
+  .quote-container {
+    padding: 0 14px;
+
+    gap: 28px;
+  }
+
+  .quote-hook h2 {
+    font-size: 1.6rem;
+  }
+
+  .quote-author {
+    font-size: 0.95rem;
+  }
+
+  .quote-title {
+    font-size: 0.75rem;
+
+    letter-spacing: 0.8px;
+  }
+
+  .quote-manifesto p {
+    font-size: 0.9rem;
+
+    line-height: 1.7;
   }
 }

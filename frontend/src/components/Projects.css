@@ -1,67 +1,207 @@
 .projects-section {
+  width: 100%;
   max-width: 1200px;
+
   margin: 0 auto;
+
   padding: 100px 48px;
+
   background: #000;
-  
+
+  box-sizing: border-box;
 }
+
+/* =========================
+   SECTION TITLE
+========================= */
 
 .section-title {
   font-size: clamp(2rem, 5vw, 3rem);
+
   font-weight: 800;
+
   margin-bottom: 60px;
+
   color: white;
+
   letter-spacing: -0.02em;
-  
+
+  line-height: 1.1;
 }
+
+/* =========================
+   GRID
+========================= */
 
 .project-grid {
   display: grid;
+
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+
   gap: 32px;
 }
 
+/* =========================
+   CARD
+========================= */
+
 .project-card {
   position: relative;
+
+  display: flex;
+  flex-direction: column;
+
   padding: 40px;
+
   background: rgba(255, 255, 255, 0.03);
+
   border-radius: 24px;
+
   border: 1px solid rgba(255, 255, 255, 0.08);
+
   overflow: hidden;
+
   cursor: pointer;
+
   transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+
+  min-width: 0;
 }
 
-/* The Animated Gradient Border */
+/* Animated Gradient Border */
+
 .project-card::before {
   content: "";
+
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
+
+  inset: 0;
+
   border-radius: 24px;
-  padding: 2px; /* Border thickness */
-  background: linear-gradient(135deg, rgba(0, 242, 254, 0), rgba(0, 255, 135, 0));
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+
+  padding: 2px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(0, 242, 254, 0),
+    rgba(0, 255, 135, 0)
+  );
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+
   -webkit-mask-composite: xor;
+
   mask-composite: exclude;
+
   transition: all 0.5s ease;
 }
 
 .project-card:hover {
   background: rgba(255, 255, 255, 0.06);
+
   transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 255, 135, 0.1);
+
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(0, 255, 135, 0.1);
 }
 
 .project-card:hover::before {
   background: linear-gradient(135deg, #00f2fe, #00ff87);
 }
 
+/* =========================
+   CARD HEADER
+========================= */
+
+.project-card-header {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: flex-start;
+
+  gap: 12px;
+
+  margin-bottom: 12px;
+}
+
+.project-subtitle {
+  font-family: 'JetBrains Mono', monospace;
+
+  font-size: 12px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+
+  color: #666;
+
+  margin: 0;
+}
+
+.project-category {
+  flex-shrink: 0;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+
+  padding: 4px 10px;
+
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.05);
+
+  color: #888;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  transition: all 0.3s ease;
+}
+
+/* Hover Category */
+
+.project-card:hover .project-category {
+  border-color: #00f2fe;
+
+  color: #00f2fe;
+
+  background: rgba(0, 242, 254, 0.05);
+}
+
+/* Internship Special */
+
+.project-card[data-type="Internship Project"]:hover .project-category {
+  border-color: #00ff87;
+
+  color: #00ff87;
+}
+
+/* =========================
+   TITLE
+========================= */
+
 .project-card h3 {
   font-size: 1.5rem;
+
   font-weight: 700;
-  margin-bottom: 8px;
+
+  margin-bottom: 14px;
+
   color: #fff;
+
+  line-height: 1.25;
+
   transition: color 0.3s ease;
 }
 
@@ -69,97 +209,233 @@
   color: #00ff87;
 }
 
-.project-subtitle {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #666;
-  margin-bottom: 20px;
-}
+/* =========================
+   DESCRIPTION
+========================= */
 
 .project-desc {
   color: #aaa;
+
   font-size: 15px;
-  line-height: 1.6;
+
+  line-height: 1.7;
+
   margin-bottom: 24px;
 }
 
+/* =========================
+   HIGHLIGHTS
+========================= */
+
 .project-highlights {
   list-style: none;
+
   padding: 0;
+
   margin-bottom: 24px;
 }
 
 .project-highlights li {
   color: #888;
+
   font-size: 14px;
+
   margin-bottom: 10px;
+
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+
   gap: 10px;
+
+  line-height: 1.6;
 }
 
-/* Custom bullet icon for highlights */
 .project-highlights li::before {
   content: "→";
+
   color: #00ff87;
+
   font-weight: bold;
+
+  flex-shrink: 0;
 }
+
+/* =========================
+   TECH STACK
+========================= */
 
 .tech-stack {
   display: flex;
+
   flex-wrap: wrap;
+
   gap: 8px;
+
   margin-top: auto;
 }
 
 .tech-stack span {
   font-size: 11px;
+
   font-weight: 600;
+
   padding: 5px 12px;
+
   border-radius: 100px;
+
   background: rgba(255, 255, 255, 0.05);
+
   color: #ccc;
+
   border: 1px solid rgba(255, 255, 255, 0.1);
+
   transition: all 0.3s ease;
 }
 
 .project-card:hover .tech-stack span {
   border-color: rgba(0, 255, 135, 0.3);
+
   color: #00ff87;
 }
 
+/* =========================
+   LAPTOP
+========================= */
 
-.project-card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 8px;
+@media (max-width: 1100px) {
+
+  .projects-section {
+    padding: 90px 32px;
+  }
+
+  .project-grid {
+    gap: 28px;
+  }
 }
 
-.project-category {
-  font-size: 10px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  padding: 4px 10px;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.05);
-  color: #888;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+  .projects-section {
+    padding: 80px 24px;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card {
+    padding: 32px;
+  }
+
+  .project-card h3 {
+    font-size: 1.4rem;
+  }
 }
 
-/* Specific colors for different project types */
-.project-card:hover .project-category {
-  border-color: #00f2fe;
-  color: #00f2fe;
-  background: rgba(0, 242, 254, 0.05);
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+  .projects-section {
+    padding: 70px 18px;
+  }
+
+  .section-title {
+    margin-bottom: 45px;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+
+    gap: 22px;
+  }
+
+  .project-card {
+    padding: 26px;
+
+    border-radius: 20px;
+  }
+
+  .project-card:hover {
+    transform: translateY(-6px) scale(1.01);
+  }
+
+  .project-card h3 {
+    font-size: 1.25rem;
+  }
+
+  .project-desc {
+    font-size: 14px;
+  }
+
+  .project-highlights li {
+    font-size: 13px;
+  }
 }
 
-/* Optional: Different glow colors for types */
-.project-card[data-type="Internship Project"]:hover .project-category {
-  border-color: #00ff87;
-  color: #00ff87;
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+
+  .projects-section {
+    padding: 60px 14px;
+  }
+
+  .section-title {
+    margin-bottom: 36px;
+  }
+
+  .project-grid {
+    gap: 18px;
+  }
+
+  .project-card {
+    padding: 22px;
+
+    border-radius: 18px;
+  }
+
+  .project-card-header {
+    flex-direction: column;
+
+    gap: 10px;
+  }
+
+  .project-card h3 {
+    font-size: 1.15rem;
+  }
+
+  .project-subtitle {
+    font-size: 11px;
+  }
+
+  .project-category {
+    font-size: 9px;
+  }
+
+  .project-desc {
+    font-size: 13px;
+
+    line-height: 1.6;
+  }
+
+  .project-highlights li {
+    font-size: 12px;
+
+    line-height: 1.5;
+  }
+
+  .tech-stack span {
+    font-size: 10px;
+
+    padding: 5px 10px;
+  }
 }
