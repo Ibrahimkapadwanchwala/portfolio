@@ -1,17 +1,24 @@
 import "./Footer.css";
-import { FaLinkedin, FaGithub, FaEnvelope, FaCheckCircle, FaExclamationCircle,FaInstagram } from "react-icons/fa";
+import {
+  FaLinkedin,
+  FaGithub,
+  FaEnvelope,
+  FaCheckCircle,
+  FaExclamationCircle,
+  FaInstagram,
+} from "react-icons/fa";
 import { useRef, useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 
 export default function Footer() {
   const form = useRef();
   const [isSending, setIsSending] = useState(false);
-  
+
   // Custom Notification State
-  const [notification, setNotification] = useState({ 
-    show: false, 
-    type: "", 
-    message: "" 
+  const [notification, setNotification] = useState({
+    show: false,
+    type: "",
+    message: "",
   });
 
   // Auto-hide notification after 3 seconds
@@ -39,7 +46,7 @@ export default function Footer() {
           setNotification({
             show: true,
             type: "success",
-            message: "Message sent successfully! 🚀"
+            message: "Message sent successfully! 🚀",
           });
           form.current.reset();
         },
@@ -47,7 +54,7 @@ export default function Footer() {
           setNotification({
             show: true,
             type: "error",
-            message: "Failed to send message. Please try again."
+            message: "Failed to send message. Please try again.",
           });
           console.error(error);
         }
@@ -63,7 +70,11 @@ export default function Footer() {
       {notification.show && (
         <div className={`notification-box ${notification.type}`}>
           <div className="notification-content">
-            {notification.type === "success" ? <FaCheckCircle /> : <FaExclamationCircle />}
+            {notification.type === "success" ? (
+              <FaCheckCircle />
+            ) : (
+              <FaExclamationCircle />
+            )}
             <span>{notification.message}</span>
           </div>
           <div className="notification-progress"></div>
@@ -75,21 +86,38 @@ export default function Footer() {
         <div className="footer-info">
           <h2 className="footer-title">Let's Build Something Together</h2>
           <p className="footer-text">
-            I'm currently looking for new opportunities. Whether you have a question about 
-            **CardioGuard** or **SecureSend**, my inbox is always open.
+            I'm currently looking for new opportunities. Whether you have a
+            question about **CardioGuard** or **SecureSend**, my inbox is always
+            open.
           </p>
 
           <div className="footer-socials">
-            <a href="https://www.linkedin.com/in/ibrahim-kapadwanchwala/" target="_blank" rel="noreferrer" className="social-link linkedin">
+            <a
+              href="https://www.linkedin.com/in/ibrahim-kapadwanchwala/"
+              target="_blank"
+              rel="noreferrer"
+              className="social-link linkedin"
+            >
               <FaLinkedin />
             </a>
-            <a href="https://github.com/Ibrahimkapadwanchwala" target="_blank" rel="noreferrer" className="social-link github">
+            <a
+              href="https://github.com/Ibrahimkapadwanchwala"
+              target="_blank"
+              rel="noreferrer"
+              className="social-link github"
+            >
               <FaGithub />
             </a>
-            <a href="mailto:ikapadwanchwala@gmail.com" className="social-link email">
+            <a
+              href="mailto:ikapadwanchwala@gmail.com"
+              className="social-link email"
+            >
               <FaEnvelope />
             </a>
-            <a href="https://www.instagram.com/kapadwanchwala" className="social-link email">
+            <a
+              href="https://www.instagram.com/kapadwanchwala"
+              className="social-link instagram"
+            >
               <FaInstagram />
             </a>
           </div>
@@ -106,7 +134,12 @@ export default function Footer() {
               <input type="email" name="email" placeholder="Email" required />
             </div>
             <div className="form-group">
-              <textarea name="message" placeholder="Message" rows="5" required></textarea>
+              <textarea
+                name="message"
+                placeholder="Message"
+                rows="5"
+                required
+              ></textarea>
             </div>
             <button type="submit" className="submit-btn" disabled={isSending}>
               {isSending ? "Sending..." : "Send Message"}
