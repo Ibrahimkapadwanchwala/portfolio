@@ -208,3 +208,89 @@
   transform: scale(1.15) translateY(-2px);
   filter: drop-shadow(0 0 10px rgba(0, 242, 254, 0.5));
 }
+
+/* --- Keep your existing code above, then add/update these sections --- */
+
+.modal-content {
+  background: #0a0a0a;
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh;
+  border-radius: 24px;
+  border: 1px solid rgba(0, 242, 254, 0.2);
+  position: relative;
+  /* Fluid padding: scales between 20px and 40px based on screen size */
+  padding: clamp(20px, 5vw, 40px); 
+  padding-right: clamp(16px, 4vw, 32px);
+  
+  overflow-y: auto;
+  overscroll-behavior: contain; 
+  scrollbar-gutter: stable;
+}
+
+/* Fluid Typography for the Header */
+.modal-header h2 {
+  font-size: clamp(1.5rem, 8vw, 2.5rem); /* Scales dynamically */
+  margin: 0;
+  color: white;
+  line-height: 1.2;
+}
+
+/* --- Responsive Media Queries --- */
+
+@media (max-width: 768px) {
+  .modal-overlay {
+    padding: 10px; /* Less wastage on mobile edges */
+  }
+
+  .modal-content {
+    max-height: 95vh;
+    border-radius: 20px;
+  }
+
+  .title-wrapper {
+    gap: 12px;
+    flex-wrap: wrap; /* Allows GitHub icon to drop down if title is long */
+  }
+
+  .close-btn {
+    top: 15px;
+    right: 15px;
+    font-size: 28px; /* Slightly smaller touch target */
+  }
+
+  .metrics-grid {
+    /* Adjusting the grid for smaller screens */
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+  }
+
+  .metric-card {
+    padding: 15px;
+  }
+
+  .metric-value {
+    font-size: 1.4rem;
+  }
+
+  /* Adjust scrollbar margin for mobile so it doesn't look disconnected */
+  .modal-content::-webkit-scrollbar-track {
+    margin: 12px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .tech-pill {
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+
+  .content-section h3 {
+    font-size: 1.1rem;
+  }
+
+  .image-container {
+    margin-bottom: 20px;
+    border-radius: 12px;
+  }
+}
